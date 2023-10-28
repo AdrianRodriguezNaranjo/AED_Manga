@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My Manga List Log In
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">User</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let b of users">
+      <label>
+        <h2>Usuario: {{b.name}}</h2>
+        <form (ngSubmit)="gotoMyMangas(b.id)">
+          <ion-input id="password" className="rounded-input" type="password" name="password" placeholder="password" required/>
+          <ion-button type="submit">Iniciar sesión</ion-button>
+        </form>
+        <ion-button (click)="deleteUser(b.id)" color="danger">Eliminar</ion-button>
+        <ion-button (click)="gotoPutUser(b.id)">Actualizar</ion-button>
+      </label>
+    </ion-item>
+  </ion-list>
+
+  <div id="container">
+    <ion-button (click)="gotoCreateUser()">Crear usuario</ion-button>
+  </div>
+</ion-content>

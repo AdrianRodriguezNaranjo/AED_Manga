@@ -1,0 +1,5 @@
+package com.tarea.mangas.entity.services;
+
+public class MangaServiceImpl {
+
+}

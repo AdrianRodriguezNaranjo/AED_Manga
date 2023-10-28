@@ -1,0 +1,13 @@
+package com.tarea.mangas.entity.services;
+
+import java.util.List;
+
+import com.tarea.mangas.entity.models.User;
+
+public interface IUserService {
+	public List<User> getAll();
+	public User getUserById(long id);
+	public void post(User user);
+	public void put(User user,long id);
+	public void delete(long id);
+}

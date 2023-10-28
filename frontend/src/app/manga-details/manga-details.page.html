@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>manga-details</ion-title><ion-button (click)="goBack()">Atrás</ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">manga-details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list *ngIf="details">
+    <ion-item>
+      <div>
+        <p>{{details.synopsis}}</p>
+        <p>{{details.chapter}}</p>
+        <ion-button (click)="deleteDetails()" color="danger">Eliminar</ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <div id="container">
+    <form (ngSubmit)="postDetails()" *ngIf="!details">
+      <ion-input id="mangaNameInput" className="rounded-input" type="text" name="synopsis" placeholder="synopsis"
+        [(ngModel)]="mangaSynopsisAdd" required />
+      <ion-input id="mangaNameInput" className="rounded-input" type="number" name="chapter" placeholder="chapter"
+        [(ngModel)]="mangaChapterAdd" required />
+      <p><ion-button type="submit">Añadir detalle</ion-button></p>
+    </form>
+    <form (ngSubmit)="updateDetails()" *ngIf="details">
+      <ion-input id="mangaNameInput" className="rounded-input" type="text" name="synopsis" placeholder="synopsis"
+        [(ngModel)]="mangaSynopsis" required />
+      <ion-input id="mangaNameInput" className="rounded-input" type="number" name="chapter" placeholder="chapter"
+        [(ngModel)]="mangaChapter" required />
+      <p><ion-button type="submit">Actualizar detalle</ion-button></p>
+    </form>
+  </div>
+</ion-content>

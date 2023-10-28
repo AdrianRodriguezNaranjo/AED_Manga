@@ -1,0 +1,39 @@
+package com.tarea.mangas.entity.services;
+
+import java.util.List;
+
+import com.tarea.mangas.entity.models.User;
+
+public class UserServiceImpl implements IUserService {
+
+	@Override
+	public List<User> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getUserById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void post(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void put(User user, long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

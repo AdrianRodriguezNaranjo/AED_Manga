@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div>
+      <h1><ion-title>My Manga List</ion-title></h1>
+      <h1><ion-button (click)="gotoHome()">Cambiar usuario</ion-button></h1>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">my-mangas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let b of mangas">
+      <div>
+        <h2>{{b.name}}</h2>
+        <p>{{b.synopsis}}</p>
+        <p>{{b.chapter}}</p>
+        <ion-button (click)="deleteManga(b.id)" color="danger">Eliminar</ion-button>
+        <ion-button (click)="updateManga(b.id)">Actualizar</ion-button>
+        <ion-button (click)="gotoDetails(b.id)">Detalles</ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <div id="container">
+    <form (ngSubmit)="postManga()">
+      <ion-input id="mangaNameInput" className="rounded-input" type="text" name="name" placeholder="name" [(ngModel)]="mangaName"
+        required />
+      <ion-text id="errorName" *ngIf="!mangaName" color="danger">
+        El nombre del manga es requerido.
+      </ion-text>
+      <p><ion-button type="submit">Añadir manga</ion-button></p>
+    </form>
+  </div>
+</ion-content>

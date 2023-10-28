@@ -1,0 +1,39 @@
+package com.tarea.mangas.entity.services;
+
+import java.util.List;
+
+import com.tarea.mangas.entity.models.Manga;
+
+public class MangaServiceImpl implements IMangaService {
+
+	@Override
+	public List<Manga> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Manga> getAllMangasInUser(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void post(Manga manga, long userId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void put(Manga manga, long userId, long mangaId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(long userId, long mangaId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

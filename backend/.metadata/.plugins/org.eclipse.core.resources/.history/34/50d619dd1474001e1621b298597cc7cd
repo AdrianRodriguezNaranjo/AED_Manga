@@ -1,0 +1,43 @@
+package com.tarea.mangas.entity.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.tarea.mangas.entity.dao.IMangaDetailsDao;
+import com.tarea.mangas.entity.models.MangaDetails;
+
+public class MangaDetailsServiceImpl implements IMangaDetailsService {
+	
+	@Autowired
+	private IMangaDetailsDao mangaDetailsDao;
+	
+	@Override
+	public List<MangaDetails> getAll() {
+		return (List<MangaDetails>) mangaDetailsDao.findAll();
+	}
+	
+	@Override
+	public MangaDetails getOne(long id) {
+		<MangaDetails> MangaDetails = mangaDetailsDao.findById(id);
+		return MangaDetails.orElse(null);
+	}
+	
+	@Override
+	public void post(MangaDetails mangaDetails) {
+		mangaDetailsDao.save(mangaDetails);
+	}
+	
+	@Override
+	public void put(MangaDetails mangaDetails, long id) {
+		mangaDetailsDao.findById(id).ifPresent((existingMangaDetails) -> {
+			mangaDetails.setId(id);
+			mangaDetailsDao.save(mangaDetails);
+		});
+	}
+	
+	@Override
+	public void delete(long id) {
+		mangaDetailsDao.deleteById(id);
+	}
+}

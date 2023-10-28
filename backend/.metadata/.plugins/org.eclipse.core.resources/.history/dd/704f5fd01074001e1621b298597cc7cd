@@ -1,0 +1,21 @@
+package com.tarea.mangas.entity.services;
+
+import java.util.List;
+
+import com.tarea.mangas.entity.models.MangaDetails;
+
+public class MangaDetailsServiceImpl {
+	public List<MangaDetails> getAll(){
+		return null;
+	}
+	public MangaDetails getOne(long id) {
+		return null;
+	}
+	public void post(MangaDetails mangaDetails) {
+		return null;
+	}
+	public void put(MangaDetails mangaDetails,long id) {
+		
+	}
+	public void delete(long id);
+}

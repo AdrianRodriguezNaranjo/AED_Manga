@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>update-user</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">update-user</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <form>
+      <input className="rounded-input" type="text" name="name" placeholder="name" [(ngModel)]="userName" />
+      <input className="rounded-input" type="text" name="password" placeholder="password" [(ngModel)]="userPassword"/>
+      <input className="rounded-input" type="text" name="email" placeholder="email" [(ngModel)]="userEmail"/>
+    </form>
+    <ion-button (click)="gotoHome()" color="danger">Cancelar</ion-button>
+    <ion-button (click)="putUser()">Actualizar usuario</ion-button>    
+  </div>
+</ion-content>

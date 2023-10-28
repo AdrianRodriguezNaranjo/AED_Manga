@@ -1,0 +1,72 @@
+package com.tarea.mangas.entity.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tarea.mangas.entity.dao.IMangaDao;
+import com.tarea.mangas.entity.dao.IMangaDetailsDao;
+import com.tarea.mangas.entity.models.Manga;
+import com.tarea.mangas.entity.models.MangaDetails;
+import com.tarea.mangas.entity.models.User;
+
+@Service
+public class MangaDetailsServiceImpl implements IMangaDetailsService {
+	
+	@Autowired
+	private IMangaDetailsDao mangaDetailsDao;
+	
+	@Autowired
+	private IMangaDao mangaDao;
+		
+	@Override
+	public List<MangaDetails> getAll() {
+		return (List<MangaDetails>) mangaDetailsDao.findAll();
+	}
+	
+	@Override
+	public MangaDetails getOne(long id) {
+		return mangaDetailsDao.findById(id).orElse(null);
+	}
+	
+	@Override
+	public void post(MangaDetails mangaDetails) {	
+		mangaDetailsDao.save(mangaDetails);		
+	}
+	
+	@Override
+	public void put(MangaDetails mangaDetails, long id) {
+//		User user = userDao.findById(userId).orElse(null);
+//		if (user != null) {
+//			Manga existingManga = mangasDao.findById(mangaId).orElse(null);
+//			if (existingManga != null) {
+//				if (existingManga.getUsersWhereTofindThisManga().contains(user)) {
+//					manga.setId(mangaId);
+//					manga.getUsersWhereTofindThisManga().add(user);
+//					mangasDao.save(manga);
+//				}
+//			}
+//		}
+		 MangaDetails existingMangaDetails = this.getOne(id);
+
+		    if (existingMangaDetails != null) {
+		        // Update the fields of the existing MangaDetails with the new data
+		        existingMangaDetails.setSynopsis(mangaDetails.getSynopsis());
+		        existingMangaDetails.setChapter(mangaDetails.getChapter());
+		        // Update other fields as needed
+
+		        // Save the updated MangaDetails
+		        mangaDetailsDao.save(existingMangaDetails);
+//		Manga manga = mangaDao.findById(id).orElse(null);
+//		if(manga != null) {
+//			mangaDetails
+//		}
+//		mangaDetailsDao.save(mangaDetails);
+	}
+	
+	@Override
+	public void delete(long id) {
+		mangaDetailsDao.deleteById(id);
+	}
+}

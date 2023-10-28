@@ -1,0 +1,8 @@
+package com.tarea.mangas.entity.models;
+
+import jakarta.persistence.Entity;
+
+@Entity(name = "manga_details")
+public class MangaDetails {
+
+}
